@@ -2,7 +2,7 @@
 
 namespace App\Handlers;
 
-use Intervention\Image\Image;
+use Intervention\Image\Facades\Image;
 use Str;
 
 class ImageUploadHandler
