@@ -41,6 +41,8 @@ namespace App\Models;
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Topic recentReplied()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Topic withOrder($order)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reply[] $replies
+ * @property-read int|null $replies_count
  */
 class Topic extends Model
 {
