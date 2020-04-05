@@ -17,9 +17,18 @@
 
                     {{-- 回复删除按钮 --}}
                     <span class="meta float-right ">
-            <a title="删除回复">
-              <i class="far fa-trash-alt"></i>
-            </a>
+              {{-- 回复删除按钮 --}}
+          <span class="meta float-right">
+            <form action="{{ route('replies.destroy', $reply->id) }}"
+                  onsubmit="return confirm('确定要删除此评论？');"
+                  method="post">
+              {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+              <button type="submit" class="btn btn-default btn-xs pull-left text-secondary">
+                <i class="far fa-trash-alt"></i>
+              </button>
+            </form>
+          </span>
           </span>
                 </div>
                 <div class="reply-content text-secondary">
