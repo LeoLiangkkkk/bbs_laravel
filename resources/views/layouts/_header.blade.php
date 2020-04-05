@@ -36,7 +36,6 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                    <li class="nav-item dropdown">
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @can('manage_contents')
                                 <a class="dropdown-item" href="{{ url(config('administrator.uri')) }}">
