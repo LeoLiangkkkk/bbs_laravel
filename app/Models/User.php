@@ -41,6 +41,8 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
  * @property-read int|null $replies_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Topic[] $topics
  * @property-read int|null $topics_count
+ * @property int $notification_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereNotificationCount($value)
  */
 class User extends Authenticatable implements MustVerifyEmailContract
 {
@@ -104,5 +106,12 @@ class User extends Authenticatable implements MustVerifyEmailContract
     public function isAuthorOf($model)
     {
         return $this->id == $model->user_id;
+    }
+
+    public function markAsRead()
+    {
+        $this->notification_count = 0;
+        $this->save();
+        $this->unreadNotifications->markAsRead();
     }
 }
